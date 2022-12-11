@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import VarLayout from "@/components/layout";
-defineProps<{ msg: string }>()
 
 const { Layout, Header, Content, Footer, Aside } = VarLayout
 </script>
 
 <template>
-  <div class="title">{{ msg }}</div>
   <Layout>
-    <Header>header</Header>
+    <Header>
+      <div class="title">Varlet Simple Admin</div>
+    </Header>
     <Layout>
-      <Aside style="width: 200px" >aside</Aside>
-      <Content>
+      <Aside class="var-height"  style="width: 200px" >aside</Aside>
+      <Content class="var-height">
         content
       </Content>
     </Layout>
@@ -22,9 +22,12 @@ const { Layout, Header, Content, Footer, Aside } = VarLayout
 </template>
 
 <style scoped lang="less">
+  .title {
+    font-size: 30px;
+    color: aliceblue;
+  }
 
-.title {
-  font-size: 30px;
-  color: skyblue;
-}
+  .var-height {
+    height: calc(100vh - 100px);
+  }
 </style>
