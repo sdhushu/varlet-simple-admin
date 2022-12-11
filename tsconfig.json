@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "baseUrl": "./",
+    "target": "esnext",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
     "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true,
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": [
+      "vite-plugin-pages/client"
+    ]
   },
   "include": [
     "src/**/*.ts",
