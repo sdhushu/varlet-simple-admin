@@ -1,24 +1,15 @@
 <script setup lang="ts">
 import VarLayout from "@/components/layout";
+import Menu from '@/components/menu/index.vue';
+import SubMenu from "@/components/sub-menu/index.vue";
+import ProLayout from "@/components/pro-layout/index.vue";
+import Config from '@/components/config/index.vue';
 
-const { Layout, Header, Content, Footer, Aside } = VarLayout
 </script>
 
 <template>
-  <Layout>
-    <Header>
-      <div class="title">Varlet Simple Admin</div>
-    </Header>
-    <Layout>
-      <Aside class="var-height"  style="width: 200px" >aside</Aside>
-      <Content class="var-height">
-        content
-      </Content>
-    </Layout>
-    <Footer>
-      footer
-    </Footer>
-  </Layout>
+  <ProLayout :header="false" :footer="false" :aside="false" />
+  <Config />
 </template>
 
 <style scoped lang="less">
@@ -30,4 +21,5 @@ const { Layout, Header, Content, Footer, Aside } = VarLayout
   .var-height {
     height: calc(100vh - 100px);
   }
+
 </style>

@@ -33,6 +33,7 @@ export default defineComponent({
   .column{
     display: flex;
     flex: none;
+    width: 100%;
   }
 
 
