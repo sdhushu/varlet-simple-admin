@@ -9,9 +9,6 @@
 
 const config  = {
 
-  layout: {
-
-  }
 }
 
 export default config

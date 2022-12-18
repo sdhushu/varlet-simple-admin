@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import VarLayout from "@/components/layout";
-import Menu from '@/components/menu/index.vue';
-import SubMenu from "@/components/sub-menu/index.vue";
 import ProLayout from "@/components/pro-layout/index.vue";
 import Config from '@/components/config/index.vue';
+import {reactive, ref} from "vue";
+
+const configLayout = reactive({
+  header: true,
+  aside: true,
+  footer: true
+})
 
 </script>
 
 <template>
-  <ProLayout :header="false" :footer="false" :aside="false" />
-  <Config />
+  <ProLayout :header="configLayout.header" :aside="configLayout.aside" :footer="configLayout.footer" />
+  <Config
+      v-model:header="configLayout.header"
+      v-model:aside="configLayout.aside"
+      v-model:footer="configLayout.footer"
+  />
 </template>
 
 <style scoped lang="less">

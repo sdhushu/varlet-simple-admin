@@ -1,7 +1,25 @@
-<script setup>
-  import {ref} from "vue";
+<script>
+import {reactive, ref, defineComponent, watchEffect} from "vue";
+import {props} from './props'
+  export default defineComponent({
+    props,
+    emits: ['update:footer', 'update:header', 'update:aside'],
+    setup(props, ctx) {
+      const configShow = ref(false)
+      const value = reactive({
+        header: true,
+        aside: true,
+        footer: true
+      })
+      return {
+        configShow,
+        value,
+        ctx
+      }
+    }
+  })
 
-  const configShow = ref(false)
+
 </script>
 
 <template>
@@ -13,10 +31,10 @@
       <div class="popup-example-block">
         <var-space direction="column">
           <div>布局模式</div>
-          <var-space>
-            <var-icon name="https://varlet.gitee.io/varlet-ui/cat.jpg" :size="32" />
-            <var-icon name="https://varlet.gitee.io/varlet-ui/cat.jpg" :size="32" />
-            <var-icon name="https://varlet.gitee.io/varlet-ui/cat.jpg" :size="32" />
+          <var-space direction="column">
+            header <var-switch v-model="value.header" @click="ctx.emit('update:header', !value.header)" />
+            aside <var-switch v-model="value.aside" @click="ctx.emit('update:aside', !value.aside)" />
+            footer <var-switch v-model="value.footer" @click="ctx.emit('update:footer', !value.footer)"/>
           </var-space>
         </var-space>
       </div>
